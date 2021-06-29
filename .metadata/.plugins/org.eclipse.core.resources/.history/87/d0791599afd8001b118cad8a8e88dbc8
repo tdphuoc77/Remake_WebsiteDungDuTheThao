@@ -1,0 +1,10 @@
+package com.dungcuthethao.RestController;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/thuoctinhsanpham")
+public class ThuocTinhSanPhamRestController {
+
+}

@@ -1,0 +1,21 @@
+package com.dungcuthethao.RestController;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dungcuthethao.repository.GiaTriThuocTinhSanPhamRepository;
+
+@RestController
+@RequestMapping("/giatrithuoctinhsanpham")
+public class GiaTriThuocTinhSanPhamRestController {
+	
+	@Autowired
+	private GiaTriThuocTinhSanPhamRepository giaTriThuocTinhSanPhamRepository;
+	
+//	void saveGTTTSP(Long sanPhamID,Long thuocTinhID,String giaTri);
+//	void updateGTTTSP(SanPham sanPham);
+//	GiaTriThuocTinhSanPham findByIdSanPhamAndIDThuocTinh(Long idSP,Long idTT);
+	
+	
+}

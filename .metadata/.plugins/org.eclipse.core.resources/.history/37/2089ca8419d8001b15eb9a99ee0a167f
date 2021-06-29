@@ -1,0 +1,40 @@
+package com.dungcuthethao.RestController;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dungcuthethao.repository.NguoiDungRepository;
+
+@RestController
+@RequestMapping("/nguoidung")
+public class NguoiDungRestController {
+	@Autowired
+	private NguoiDungRepository nguoiDungRepository;
+	
+//	List<NguoiDung> findAllAndPaging(Pageable pageable);
+//	void saveNguoiDung(NguoiDung nguoiDung);
+//	void UpdateNguoiDung(NguoiDung nguoiDung);
+//	NguoiDung findById(Long id);
+//	List<NguoiDung> findByTenAndHo(String ten,String ho);
+//	
+//	void doiMatKhau(TaiKhoanDTO taiKhoanDTO);
+//	
+//	NguoiDung findOneByTenDangNhap(String tenDangNhap);
+//	Long getTotalItem();
+//	void setTrangThaiNguoiDung(Long id, boolean tt);
+//	 List<NguoiDung> findAll();
+	
+	@RequestMapping
+	public List<NguoiDung> gettAll(@RequestParam int page,@RequestParam int size) {
+			
+		Pageable pageable=PageRequest.of(page, size);
+		return nguoiDungRepository.findAll(pageable);
+	}
+	
+}

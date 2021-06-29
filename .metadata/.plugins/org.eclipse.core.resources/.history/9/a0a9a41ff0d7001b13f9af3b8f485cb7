@@ -1,0 +1,12 @@
+package com.dungcuthethao.RestController;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.dungcuthethao.repository.AnhSanPhamRepository;
+
+public class AnhSanPhamRestController {
+	
+	@Autowired
+	private AnhSanPhamRepository anhSanPhamRepository;
+
+}

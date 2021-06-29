@@ -1,0 +1,15 @@
+package com.dungcuthethao.repository;
+
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.dungcuthethao.entity.SanPham;
+
+public interface SanPhamRepository extends JpaRepository<SanPham, Long> {
+	List<SanPham> findByDanhmucIdAndTrangThai(Long idDM,boolean tt,Pageable pageable);
+	List<SanPham> findTop3BySoLuotXem();
+	List<SanPham> findTop3BySoLuotXemOrderBySoLuotXemDesc();
+	
+}

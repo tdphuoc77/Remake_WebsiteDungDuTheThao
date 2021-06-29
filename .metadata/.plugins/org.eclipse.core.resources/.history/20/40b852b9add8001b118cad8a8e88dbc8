@@ -1,0 +1,25 @@
+package com.dungcuthethao.repository;
+
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.dungcuthethao.entity.SanPham;
+
+public interface SanPhamRepository extends JpaRepository<SanPham, Long> {
+	List<SanPham> findByDanhmucIdAndTrangThai(Long idDM,boolean tt,Pageable pageable);
+	
+
+	@Query(value = "SELECT TOP 10 *  FROM SANPHAM order by soLuotXem DESC", nativeQuery = true)
+	List<SanPham> findDSSanPhamNoiBat();
+		
+	@Query(value = "SELECT TOP 3 *  FROM SANPHAM order by soLuotXem DESC", nativeQuery = true)
+	List<SanPham> findTop3SanPhamBySoLuotXem();
+	
+	@Query(value = " SELECT TOP 3 *  FROM SANPHAM order by phanTramGiamGia desc", nativeQuery = true)
+	List<SanPham> findTop3SanPhamGiamGiaNhieuNhat();
+	
+	List<SanPham> findByTenOrContainingAndTrangThaiIsTrue(String ten);
+}

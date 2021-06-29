@@ -1,0 +1,6 @@
+spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=dungcuthethao
+spring.datasource.username=sa
+spring.datasource.password=sapassword
+spring.jpa.hibernate.ddl-auto=update
+server.port=7070
+spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.ImprovedNamingStrategy

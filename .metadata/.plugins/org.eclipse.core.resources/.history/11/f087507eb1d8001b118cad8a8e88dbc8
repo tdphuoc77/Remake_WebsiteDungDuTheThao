@@ -1,0 +1,9 @@
+package com.dungcuthethao.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.dungcuthethao.entity.HoaDon;
+
+public interface HoaDonRepository extends JpaRepository<HoaDon, Long> {
+
+}

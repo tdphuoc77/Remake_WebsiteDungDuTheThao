@@ -1,0 +1,81 @@
+package com.dungcuthethao.RestController;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dungcuthethao.entity.SanPham;
+import com.dungcuthethao.repository.SanPhamRepository;
+
+@RestController
+@RequestMapping("/sanpham")
+public class SanPhamRestController {
+	@Autowired
+	private SanPhamRepository sanPhamRepository;
+//	List<SanPham> findAllAndPaging(Pageable pageable);
+//	void deleteById(Long id);
+//	void save (SanPham sanPham);
+//	SanPham findById(Long id);
+//	void updateSanPham(SanPham sanPham);
+//	List<SanPham> findTop3SanPhamBySoLuotXem();
+//	List<SanPham> findDSSanPhamNoiBat();
+//	List<SanPham> findTop3SanPhamGiamGiaNhieuNhat();
+//	List<SanPham> findByDanhMucIDAndTrangThai(Long idDM,boolean tt, Pageable pageable );
+//	Long getTotalItem();
+//	void setTrangThaiSanPham(Long id, boolean tt);
+//	
+//	List<SanPham> findAllByTrangThaiAndPaging(boolean tt, Pageable pageable);
+//	
+//	public List<SanPham> search(String keyword, Pageable pageable);
+	@GetMapping
+	public List<SanPham> getAll() {
+		return sanPhamRepository.findAll();
+	}
+	@GetMapping("/phantrang")
+	public List<SanPham> getAllAndPaging(@RequestParam int page,@RequestParam int limit) {
+		Pageable pageable= PageRequest.of(page-1, limit);
+		return sanPhamRepository.findAll(pageable).getContent();
+	}
+	@GetMapping("/tongso")
+	public int getTotal() {
+		return (int) sanPhamRepository.count();
+	}
+	@GetMapping("/{id}")
+	public SanPham getByID(@PathVariable Long id) {
+		return sanPhamRepository.findById(id).get();
+	}
+	@PostMapping
+	public SanPham addSP(@RequestBody SanPham  sanPham) {
+		sanPhamRepository.save(sanPham);
+		return sanPham;
+	}
+	@PutMapping
+	public SanPham updateSP(@RequestBody SanPham  sanPham) {
+		sanPhamRepository.save(sanPham);
+		return sanPham;
+	}
+	@GetMapping("/top3soluotxem")
+	public List<SanPham> getTop3SoLuotXem() {
+		return sanPhamRepository.findTop3SanPhamBySoLuotXem();
+	}
+	
+	@GetMapping("/top3sanphangiamgia")
+	public List<SanPham> getTop3GiamGia() {
+		return sanPhamRepository.findTop3SanPhamGiamGiaNhieuNhat();
+	}
+	
+	@GetMapping("/top10noibat")
+	public List<SanPham> getDSNoiBat() {
+		return sanPhamRepository.findDSSanPhamNoiBat();
+	}
+}

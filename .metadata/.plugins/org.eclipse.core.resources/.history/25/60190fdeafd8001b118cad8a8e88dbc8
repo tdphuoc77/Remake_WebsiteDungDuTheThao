@@ -1,0 +1,29 @@
+package com.dungcuthethao.RestController;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dungcuthethao.entity.ThuocTinhSanPham;
+import com.dungcuthethao.repository.ThuocTinhSanPhamRepository;
+
+@RestController
+@RequestMapping("/thuoctinhsanpham")
+public class ThuocTinhSanPhamRestController {
+	@Autowired
+	private ThuocTinhSanPhamRepository thuocTinhSanPhamRepository;
+//	void saveTTSP(ThuocTinhSanPham thuocTinhSanPham);
+//	void updateTTSP(ThuocTinhSanPham thuocTinhSanPham);
+//	ThuocTinhSanPham findById(Long id);
+//	ThuocTinhSanPham findOneByTenThuoctinh(String ten);
+//	List<ThuocTinhSanPham> findAll();
+	
+	@GetMapping
+	public List<ThuocTinhSanPham> getAll() {
+		return thuocTinhSanPhamRepository.findAll();
+	}
+	
+}

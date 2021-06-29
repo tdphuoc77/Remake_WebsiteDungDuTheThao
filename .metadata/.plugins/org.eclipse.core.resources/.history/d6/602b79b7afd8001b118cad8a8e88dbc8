@@ -1,0 +1,14 @@
+package com.dungcuthethao.RestController;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dungcuthethao.repository.ThuocTinhSanPhamRepository;
+
+@RestController
+@RequestMapping("/thuoctinhsanpham")
+public class ThuocTinhSanPhamRestController {
+	@Autowired
+	private ThuocTinhSanPhamRepository thuocTinhSanPhamRepository;
+}

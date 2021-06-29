@@ -1,0 +1,5 @@
+package com.dungcuthethao.repository;
+
+public interface GiaTriThuocTinhSanPhamRepository {
+
+}
