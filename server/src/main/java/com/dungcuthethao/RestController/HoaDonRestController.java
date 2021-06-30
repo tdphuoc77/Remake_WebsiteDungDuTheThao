@@ -59,6 +59,13 @@ public class HoaDonRestController {
 		return hoaDonRepository.findByNguoidungIdAndTrangThaiIsTrueAndNguoiDungXacNhanIsFalse(idND);
 	}
 	
+	
+	
+	@GetMapping("/{id}")
+	public HoaDon findById(@PathVariable Long id) {
+		return hoaDonRepository.findById(id).get();
+		
+	}
 	@PostMapping
 	public HoaDon addHD(@RequestBody HoaDon hoaDon) {
 		hoaDonRepository.save(hoaDon);

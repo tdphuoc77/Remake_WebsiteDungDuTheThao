@@ -25,7 +25,7 @@ public class ChiTietHoaDonRestController {
 //	List<ChiTietHoaDon> findByMaHoaDon(Long hoadonID);
 //	void deleteCTHD(List<ChiTietHoaDon> chiTietHoaDons);
 	
-	@GetMapping
+	@GetMapping("/hoadon/{id}")
 	public List<ChiTietHoaDon> getByHoaDon(@PathVariable Long id) {
 		return chiTietHoaDonReposiotry.findByHoadonId(id);
 	}
@@ -36,9 +36,9 @@ public class ChiTietHoaDonRestController {
 	}
 	
 	@DeleteMapping
-	public void delete(@RequestBody Long[] ids) {
-		for (long id: ids) {
-			chiTietHoaDonReposiotry.deleteById(id);
+	public void delete(@RequestBody List<ChiTietHoaDon> chiTietHoaDons) {
+		for (ChiTietHoaDon id: chiTietHoaDons) {
+			chiTietHoaDonReposiotry.delete(id);
 		}
 		
 	}

@@ -10,11 +10,17 @@ public interface IHoaDonService {
 	HoaDon findById(Long id);
 //	void themDSChiTietHoaDon(Long idHD,HashMap<Long, GiohangSanphamDTO> gioHang);
 	Long getTotalItem();
-	void deleteHoaDon(HoaDon hoaDon);
-	void setTrangThaiHoaDon(Long id, boolean tt);
+	void deleteHoaDon(Long id);
+//	void setTrangThaiHoaDon(Long id, boolean tt);
 	
 	void updateHoaDon(HoaDon hoaDon);
 	
-	void setNgayNhan( LocalDate ngayNhan ,Long id);
-	List<HoaDon> findListHoaDonDaGiao(Long id);
+//	void setNgayNhan( LocalDate ngayNhan ,Long id);
+	List<HoaDon> findListHoaDonDaGiao();
+	List<HoaDon> findListHoaChuaGiao();
+	List<HoaDon> getByNguoiDungNhan(Long idND);
+	List<HoaDon> getByNguoiDungChuaNhan(Long idND);
+	
+	
+	
 }

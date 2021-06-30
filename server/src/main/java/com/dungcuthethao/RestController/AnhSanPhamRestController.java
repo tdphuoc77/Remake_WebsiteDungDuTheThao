@@ -18,7 +18,7 @@ public class AnhSanPhamRestController {
 	@Autowired
 	private AnhSanPhamRepository anhSanPhamRepository;
 	
-	@GetMapping
+	@GetMapping("/sanpham/{id}")
 	public List<AnhSanPham> getBySP(@PathVariable Long id) {
 		return anhSanPhamRepository.findBySanphamId(id);
 	}

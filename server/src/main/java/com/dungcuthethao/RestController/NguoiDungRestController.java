@@ -85,8 +85,10 @@ public class NguoiDungRestController {
 	}
 	
 	@GetMapping("/tongso")
-	public int getTotal() {
-		return (int) nguoiDungRepository.count();
+	public Long getTotal() {
+		return  nguoiDungRepository.count();
 	}
+	
+	
 	
 }

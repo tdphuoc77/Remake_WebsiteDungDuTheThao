@@ -5,8 +5,8 @@ import java.util.List;
 import com.dungcuthethao.client.entity.SanPham;
 
 public interface ISanPhamService {
-	List<SanPham> findByTen(String ten);
-	void deleteById(Long id);
+	List<SanPham> findByTen(String ten, int page, int limit);
+
 	void save (SanPham sanPham);
 	SanPham findById(Long id);
 	void updateSanPham(SanPham sanPham);

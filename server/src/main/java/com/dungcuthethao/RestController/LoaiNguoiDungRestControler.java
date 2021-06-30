@@ -19,7 +19,7 @@ public class LoaiNguoiDungRestControler {
 //	LoaiNguoiDung findByID(Long id);
 //	LoaiNguoiDung findByTenLoaiNguoiDung(String tenLoai);
 	
-	@GetMapping
+	@GetMapping("/{id}")
 	public LoaiNguoiDung getById(@PathVariable Long id) {
 		return loaiNguoiDungRepository.findById(id).get();
 	}

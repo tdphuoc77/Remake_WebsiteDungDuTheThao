@@ -10,5 +10,6 @@ public interface INhaCungCapService {
 	NhaCungCap findByTenNhaCungCap(String ten);
 	NhaCungCap findNCCByID(Long id);
 	List<NhaCungCap> findAll();
-	void deleteNCC(NhaCungCap nhaCungCap);
+	void deleteNCC(Long id);
+	List<NhaCungCap> getAllAndPaging(int page, int limit);
 }

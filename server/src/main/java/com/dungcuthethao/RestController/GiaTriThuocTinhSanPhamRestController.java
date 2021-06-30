@@ -23,7 +23,7 @@ public class GiaTriThuocTinhSanPhamRestController {
 //	void updateGTTTSP(SanPham sanPham);
 //	GiaTriThuocTinhSanPham findByIdSanPhamAndIDThuocTinh(Long idSP,Long idTT);
 	
-	@GetMapping
+	@GetMapping("/sanpham&&thuoctinh")
 	public GiaTriThuocTinhSanPham getBySPAndTTSP(@RequestParam Long idSP,@RequestParam Long idTT) {
 		
 		return giaTriThuocTinhSanPhamRepository.findOneBySanphamIdAndThuoctinhsanphamId(idSP, idTT);

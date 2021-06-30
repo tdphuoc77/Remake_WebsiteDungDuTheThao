@@ -45,7 +45,7 @@ public class NhaCungCapRestController {
 	
 	@GetMapping("/phantrang")
 	public List<NhaCungCap> getAllAndPaging(@RequestParam int page,@RequestParam int limit) {
-		Pageable pageable= PageRequest.of(page, limit);
+		Pageable pageable= PageRequest.of(page-1, limit);
 		return nhaCungCapRepository.findAll(pageable).getContent();
 	}
 	@GetMapping("/tongso")

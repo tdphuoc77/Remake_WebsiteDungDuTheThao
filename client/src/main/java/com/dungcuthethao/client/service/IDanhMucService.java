@@ -14,4 +14,5 @@ public interface IDanhMucService {
 	void themDanhMuc(DanhMuc danhMuc);
 	DanhMuc findOne(Long id);
 	List<DanhMuc> findAllDanhMucCon();
+	List<DanhMuc> findAllAndPaging(int page, int limit);
 }
