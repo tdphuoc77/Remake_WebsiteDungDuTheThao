@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<%-- <%@ page import="com.websitedungcuthethao.util.SecurityUtils"%> --%>
-<!-- Header -->
+<%-- <%@ page import="com.websitedungcuthethao.util.SecurityUtils"%>
+ --%><!-- Header -->
 <header class="header shop">
 	<!-- Topbar -->
 	<div class="topbar">

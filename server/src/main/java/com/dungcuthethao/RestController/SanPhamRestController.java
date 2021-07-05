@@ -57,8 +57,8 @@ public class SanPhamRestController {
 		return sanPhamRepository.findByOrderByGiaDesc(pageable);
 	}
 	@GetMapping("/tongso")
-	public int getTotal() {
-		return (int) sanPhamRepository.count();
+	public Long getTotal() {
+		return (Long) sanPhamRepository.count();
 	}
 	@GetMapping("/{id}")
 	public SanPham getByID(@PathVariable Long id) {
@@ -107,5 +107,22 @@ public class SanPhamRestController {
 		return sanPhamRepository.findByTenContainingAndTrangThaiIsTrueOrderByGiaDesc(ten, pageable);
 		
 	}
+	@GetMapping("/danhmuc/{idDM}")
+	public List<SanPham> getByDanhMuc(@PathVariable Long idDM,@RequestParam int page,@RequestParam int limit) {
+		Pageable pageable= PageRequest.of(page-1, limit);
+		return sanPhamRepository.findByDanhmucIdAndTrangThaiIsTrue(idDM, pageable);
+	}
+	@GetMapping("/danhmuc/{idDM}/tang")
+	public List<SanPham> getByDanhMucTang(@PathVariable Long idDM,@RequestParam int page,@RequestParam int limit) {
+		Pageable pageable= PageRequest.of(page-1, limit);
+		return sanPhamRepository.findByDanhmucIdAndTrangThaiIsTrueOrderByGiaAsc(idDM, pageable);
+	}
+	@GetMapping("/danhmuc/{idDM}/giam")
+	public List<SanPham> getByDanhMucGiam(@PathVariable Long idDM,@RequestParam int page,@RequestParam int limit) {
+		Pageable pageable= PageRequest.of(page-1, limit);
+		return sanPhamRepository.findByDanhmucIdAndTrangThaiIsTrueOrderByGiaDesc(idDM, pageable);
+	}
+	
+	
 	
 }

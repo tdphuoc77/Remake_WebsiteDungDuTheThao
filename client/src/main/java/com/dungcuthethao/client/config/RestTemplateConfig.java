@@ -37,4 +37,5 @@ public class RestTemplateConfig {
 		return mailSender;
 		
 	}
+
 }

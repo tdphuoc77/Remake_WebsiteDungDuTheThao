@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
-	prefix="decorator"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -10,13 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title><decorator:title /></title>
 
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+<!-- Web Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
 	rel="stylesheet">
-
-
 
 <!-- StyleSheet -->
 
@@ -47,14 +46,13 @@
 <link rel="stylesheet" href="<c:url value="/resources/user/css/responsive.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/user/style.css"/>">
 
- 
-  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
 </head>
 <!--/head-->
 <body>
-	<%@include file="/WEB-INF/views/layouts/nguoidung/header.jsp"%>
+	<%@include file="/WEB-INF/views/layouts/nguoidung/header1.jsp"%>
 
-	<decorator:body />
+	<%@include file="/WEB-INF/views/nguoidung/ketqua_timkiem.jsp"%>
 
 	<%@include file="/WEB-INF/views/layouts/nguoidung/footer.jsp"%>
 
@@ -90,16 +88,49 @@
 	<script src="<c:url value="/resources/user/js/easing.js"/>"></script>
 	<!-- Active JS -->
 	<script src="<c:url value="/resources/user/js/active.js"/>"></script>
-	
-	<decorator:getProperty property="page.script"></decorator:getProperty>
-	<script type="text/javascript">
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script> -->
+    <script src="<c:url value="/resources/phantrang/jquery.twbsPagination.js"/>"></script>
+    
+    <script type="text/javascript">
+  	  
 		$("#btn-search-sp").on("click", function () {
 			var keywork = $("#keywork").val();
 			if(keywork != ""){
-				window.location = "http://localhost:8080/website-dungcuthethao/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&limit=12";
+				window.location = "http://localhost:8080/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&&limit=12";
 			}
 			
 		})
+	var totalPages = ${abstractDTO.totalPage};
+	var currentPage = ${abstractDTO.page};
+	var limit = ${abstractDTO.limit};
+	
+		$(function() {
+			window.pagObj = $('#pagination').twbsPagination({
+				totalPages : totalPages,
+				visiblePages :10,
+				startPage: currentPage,
+				onPageClick : function(event, page) {
+					if (currentPage != page) {
+	            		$('#limit').val(limit);
+						$('#page').val(page);
+						$('#formSubmit').submit();
+					}
+				}
+			});
+		});
+		
+		$("#sepXep").change(function() {
+			var keywork = $("#khoa").val();
+			var x = $("#sepXep").val();
+		
+			window.location.href= "http://localhost:8080/danh-sach-san-pham/tim-kiem/"+keywork+"/sap-xep/"+x+"?page=1&limit=12";   
+
+		  
+		});
+		
+		
 	</script>
+    
 </body>
 </html>

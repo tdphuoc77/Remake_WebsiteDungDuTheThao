@@ -144,29 +144,5 @@
 	</section>
 	</form>
 	<!--/ End Product Style 1  -->
-	<content tag="script"> <script type="text/javascript">
-	var totalPages = ${abstractDTO.totalPage};
-	var currentPage = ${abstractDTO.page};
-	var limit = ${abstractDTO.limit};
-		$(function() {
-			window.pagObj = $('#pagination').twbsPagination({
-				totalPages : totalPages,
-				visiblePages :10,
-				startPage: currentPage,
-				onPageClick : function(event, page) {
-					if (currentPage != page) {
-	            		$('#limit').val(limit);
-						$('#page').val(page);
-						$('#formSubmit').submit();
-					}
-				}
-			});
-		});
-		
-		$("#sepXep").change(function() {
-				var x = $("#sepXep").val();
-			  window.location = "http://localhost:8080/website-dungcuthethao/danh-sach-san-pham/sap-xep/"+x+"?page=1&limit=12";
-			  
-			});
-	</script> </content>
+
 </body>

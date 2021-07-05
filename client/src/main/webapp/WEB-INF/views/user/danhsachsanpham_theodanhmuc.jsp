@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
-	prefix="decorator"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title><decorator:title /></title>
+
 
 <link rel="icon" type="image/png" href="images/favicon.png">
 <!-- Web Font -->
@@ -53,7 +52,7 @@
 <body>
 	<%@include file="/WEB-INF/views/layouts/nguoidung/header1.jsp"%>
 
-	<decorator:body />
+	<%@include file="/WEB-INF/views/nguoidung/danhsachsanpham_theodanhmuc.jsp"%>
 
 	<%@include file="/WEB-INF/views/layouts/nguoidung/footer.jsp"%>
 
@@ -92,18 +91,37 @@
 		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script> -->
     <script src="<c:url value="/resources/phantrang/jquery.twbsPagination.js"/>"></script>
-	<decorator:getProperty property="page.script"></decorator:getProperty>
-	
-	
-    
     <script type="text/javascript">
 		$("#btn-search-sp").on("click", function () {
 			var keywork = $("#keywork").val();
 			if(keywork != ""){
-				window.location = "http://localhost:8080/website-dungcuthethao/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&limit=12";
+				window.location = "http://localhost:8080/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&limit=12";
 			}
 			
 		})
+		var totalPages = ${abstractDTO.totalPage};
+	var currentPage = ${abstractDTO.page};
+	var limit = ${abstractDTO.limit};
+		$(function() {
+			window.pagObj = $('#pagination').twbsPagination({
+				totalPages : totalPages,
+				visiblePages :10,
+				startPage: currentPage,
+				onPageClick : function(event, page) {
+					if (currentPage != page) {
+	            		$('#limit').val(limit);
+						$('#page').val(page);
+						$('#formSubmit').submit();
+					}
+				}
+			});
+		});
+		
+		$("#sepXep").change(function() {
+				var x = $("#sepXep").val();
+			  window.location = "http://localhost:8080/danh-sach-san-pham/danh-muc/"+${danhmucID}+"/sap-xep/"+x+"?page=1&limit=12";
+			  
+			});
 		
 	</script>
     

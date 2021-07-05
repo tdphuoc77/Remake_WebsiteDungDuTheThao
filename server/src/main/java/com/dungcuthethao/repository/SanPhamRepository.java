@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import com.dungcuthethao.entity.SanPham;
 
 public interface SanPhamRepository extends JpaRepository<SanPham, Long> {
-	List<SanPham> findByDanhmucIdAndTrangThai(Long idDM,boolean tt,Pageable pageable);
-	
-
+	List<SanPham> findByDanhmucIdAndTrangThaiIsTrue(Long idDM,Pageable pageable);
+	List<SanPham> findByDanhmucIdAndTrangThaiIsTrueOrderByGiaAsc(Long idDM,Pageable pageable);
+	List<SanPham> findByDanhmucIdAndTrangThaiIsTrueOrderByGiaDesc(Long idDM,Pageable pageable);
 	@Query(value = "SELECT TOP 10 *  FROM SANPHAM order by soLuotXem DESC", nativeQuery = true)
 	List<SanPham> findDSSanPhamNoiBat();
 		

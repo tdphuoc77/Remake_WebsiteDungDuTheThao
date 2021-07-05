@@ -16,7 +16,7 @@
 
 </head>
 <body class="sb-nav-fixed">
-	<%@include file="quantri/header.jsp"%>
+	<%@include file="/WEB-INF/views/layouts/quantri/header.jsp"%>
 	<decorator:body />
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

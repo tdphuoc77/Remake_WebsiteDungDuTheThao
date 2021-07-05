@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<%-- <%@ page import="com.websitedungcuthethao.util.SecurityU --%>tils" %>
+<%-- <%@ page import="com.websitedungcuthethao.util.SecurityUtils" %> --%>
 <!-- Header -->
 <header class="header shop">
 	<!-- Topbar -->
@@ -21,9 +21,9 @@
 				<div class="col-lg-8 col-md-12 col-12">
 					<!-- Top Right -->
 					<div class="right-content">
-			<%-- 			<ul class="list-main">
+						<ul class="list-main">
 							
-							<security:authorize access="isAnonymous()">
+							<%-- <security:authorize access="isAnonymous()">
 								<li><i class="ti-power-off"></i><a href=" <c:url value="/dang-nhap"/> ">Đăng nhập</a></li>
 								<li><i class="ti-arrow-right"></i> <a href="<c:url value="/dangky"/> ">Đăng ký</a></li>
 							</security:authorize>
@@ -31,8 +31,8 @@
 							<security:authorize access="isAuthenticated()">
 								<li><i class="ti-power-off"></i>Welcome <%=SecurityUtils.getPrincipal().getFullName() %></li>
 								<li><i class="ti-arrow-right"></i> <a href="<c:url value="/dang-xuat"/> ">Thoát</a></li>
-							</security:authorize>
-						</ul> --%>
+							</security:authorize> --%>
+						</ul>
 					</div>
 					<!-- End Top Right -->
 				</div>

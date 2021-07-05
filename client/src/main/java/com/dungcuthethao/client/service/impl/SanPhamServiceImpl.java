@@ -20,7 +20,7 @@ public class SanPhamServiceImpl implements ISanPhamService {
 	@Override
 	public List<SanPham> findByTen(String ten, int page, int limit) {
 		// TODO Auto-generated method stub
-		return rest.exchange("sanpham/search?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		return rest.exchange("sanpham/search?ten="+ten+"&&page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
 		}).getBody();
 	}
 
@@ -73,6 +73,69 @@ public class SanPhamServiceImpl implements ISanPhamService {
 	public void setTrangThaiSanPham(Long id, boolean tt) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public List<SanPham> getAll() {
+		return rest.exchange("sanpham", HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> getAllAndPaging(int page, int limit) {
+		return rest.exchange("sanpham/phantrang?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> getAllAndPagingAndSapXepTang(int page, int limit) {
+		return rest.exchange("sanpham/phantrang/sapxep/tang?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> getAllAndPagingAndSapXepGiam(int page, int limit) {
+		return rest.exchange("sanpham/phantrang/sapxep/giam?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> searchByTenAndSapXepTang(String ten, int page, int limit) {
+		return rest.exchange("sanpham/search/sapxep/tang?ten="+ten+"&&page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> searchByTenAndSapXepGiam(String ten, int page, int limit) {
+		return rest.exchange("sanpham/search/sapxep/giam?ten="+ten+"&&page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> getByDanhMuc(Long idDM, int page, int limit) {
+		return rest.exchange("sanpham/danhmuc/"+idDM+"?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> getByDanhMucTang(Long idDM, int page, int limit) {
+		return rest.exchange("sanpham/danhmuc/"+idDM+"/tang?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
+	}
+
+
+	@Override
+	public List<SanPham> getByDanhMucGiam(Long idDM, int page, int limit) {
+		return rest.exchange("sanpham/danhmuc/"+idDM+"/giam?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<SanPham>>() {
+		}).getBody();
 	}
 
 }

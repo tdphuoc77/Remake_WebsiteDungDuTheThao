@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.dungcuthethao.client.entity.DanhMuc;
 import com.dungcuthethao.client.service.IDanhMucService;
-
 @Service
 public class DanhMucServiceImpl implements IDanhMucService{
 	
@@ -19,7 +18,6 @@ public class DanhMucServiceImpl implements IDanhMucService{
 
 	@Override
 	public List<DanhMuc> findAll() {
-		// TODO Auto-generated method stub
 		return rest.exchange("danhmuc", HttpMethod.GET, null, new ParameterizedTypeReference<List<DanhMuc>>() {
 		}).getBody();
 	}
@@ -39,7 +37,6 @@ public class DanhMucServiceImpl implements IDanhMucService{
 
 	@Override
 	public List<DanhMuc> findAllDanhMucCha() {
-		// TODO Auto-generated method stub
 		return rest.exchange("danhmuc/danhmuccha", HttpMethod.GET, null, new ParameterizedTypeReference<List<DanhMuc>>() {
 		}).getBody();
 	}
