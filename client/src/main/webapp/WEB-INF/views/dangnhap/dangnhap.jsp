@@ -13,24 +13,22 @@
 							<div class="alert alert-danger">Tên đăng nhập hoặc mật khẩu
 								không hợp lệ</div>
 						</c:if>
-						<c:if test="${param.accessDenied != null}">
-							<div class="alert alert-danger">Bạn không có quyền truy cập</div>
-						</c:if>
 						<div class="card shadow-lg border-0 rounded-lg mt-5">
 							<div class="card-header">
 								<h3 class="text-center font-weight-light my-4">Đăng nhập</h3>
 							</div>
 							<div class="card-body">
-								<form action="j_spring_security_check" method="post">
+							
+								<form action="<c:url value="/j_spring_security_login" />" method="GET">
 									<div class="form-group">
 										<label class="small mb-1" for="inputEmailAddress">Tài
 											khoản</label> <input class="form-control py-4" id="inputEmailAddress"
-											type="text" placeholder="Nhập tài khoản" name="j_username" />
+											type="text" placeholder="Nhập tài khoản" name="username" />
 									</div>
 									<div class="form-group">
 										<label class="small mb-1" for="inputPassword">Mật Khẩu</label>
 										<input class="form-control py-4" id="inputPassword"
-											type="password" placeholder="Nhập mật khẩu" name="j_password" />
+											type="password" placeholder="Nhập mật khẩu" name="password" />
 									</div>
 									<!-- <div class="form-group">
 										<div class="custom-control custom-checkbox">

@@ -9,16 +9,16 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class LuuAnh {
-	public void luuAnh(CommonsMultipartFile multipartFile,HttpSession session ) throws IOException {
+	public void luuAnh(MultipartFile anhSanPham,HttpSession session ) throws IOException {
 		ServletContext context= session.getServletContext();
-		String fileName= multipartFile.getOriginalFilename();
+		String fileName= anhSanPham.getOriginalFilename();
 		String path= context.getRealPath("/resources/images/user/sanpham");
 		String filePath= path+ File.separator+fileName;
-		byte[] bytes= multipartFile.getBytes();
+		byte[] bytes= anhSanPham.getBytes();
 		BufferedOutputStream stream;
 		try {
 			stream = new BufferedOutputStream(new FileOutputStream(new File(filePath)));

@@ -13,7 +13,7 @@
 								<div class="alert alert-danger ">${mesMaXacNhanSai}</div>
 							</c:if>
 					<h3 class="title">Nhập mã xác nhận</h3>
-					<form method="POST" action="<c:url value="/dangky/luu-nguoi-dung"/>">			
+					<form action="<c:url value="/dangky/luu-nguoi-dung"/>">			
 						<div class="col-4">
 						<label class="label" >Một mã đã được gửi đến email đăng ký của bạn!</label>
 						<label class="label" >Vui lòng kiểm tra email của bạn và nhập mã xác nhận để tiến hành đổi mật khẩu</label>

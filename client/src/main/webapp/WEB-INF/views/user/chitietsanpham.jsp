@@ -52,7 +52,7 @@
 <body>
 	<%@include file="/WEB-INF/views/layouts/nguoidung/header1.jsp"%>
 
-	<%@include file="/WEB-INF/views/nguoidung/thongtincuahang.jsp"%>
+	<%@include file="/WEB-INF/views/nguoidung/chitietsanpham.jsp"%>
 
 	<%@include file="/WEB-INF/views/layouts/nguoidung/footer.jsp"%>
 
@@ -91,20 +91,5 @@
 		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script> -->
     <script src="<c:url value="/resources/phantrang/jquery.twbsPagination.js"/>"></script>
-
-	
-	
-    
-    <script type="text/javascript">
-		$("#btn-search-sp").on("click", function () {
-			var keywork = $("#keywork").val();
-			if(keywork != ""){
-				window.location = "http://localhost:8080/website-dungcuthethao/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&limit=12";
-			}
-			
-		})
-		
-	</script>
-    
 </body>
 </html>

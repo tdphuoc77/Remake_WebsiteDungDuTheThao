@@ -73,7 +73,7 @@ public class NguoiDungRestController {
 	
 	@GetMapping("/tendangnhap")
 	public NguoiDung getByTenDangNhap(@RequestParam String ten) {
-		return nguoiDungRepository.findOneByTenDangNhap(ten);
+		return nguoiDungRepository.findOneByTenDangNhapAndTrangThaiIsTrue(ten);
 		
 	}
 	@PutMapping("/doitrangthai/{id}")

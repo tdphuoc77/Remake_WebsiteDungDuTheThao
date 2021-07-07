@@ -112,15 +112,6 @@
 		</div>
 	</div>
 	<!--/ End Shopping Cart -->
-	<content tag="script">
-	<script>
-		$(".edit-cart").on("click", function(){
-			var id = $(this).data("id");
-			var soluong = $("#so-luong-"+id).val();
-			window.location = "gio-hang/sua/"+id+"/"+soluong;
-			alert("Cập nhật thành công");
-		});
-	</script>
-	</content>
+
 
 </body>
