@@ -20,12 +20,10 @@ public class DiaChiServiceImpl implements IDiaChiService{
 	@Override
 	public void saveDiaChi(DiaChi diaChi) {
 		rest.postForEntity("diachi", diaChi, DiaChi.class);
-		
 	}
 
 	@Override
 	public List<DiaChi> findByNguoiDungID(Long id) {
-		// TODO Auto-generated method stub
 		return rest.exchange("diachi/nguoidung/"+id, HttpMethod.GET, null, new ParameterizedTypeReference<List<DiaChi>>() {
 		}).getBody();
 	}

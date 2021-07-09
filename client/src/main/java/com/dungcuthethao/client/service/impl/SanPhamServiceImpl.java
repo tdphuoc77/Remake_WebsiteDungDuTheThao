@@ -39,7 +39,7 @@ public class SanPhamServiceImpl implements ISanPhamService {
 
 	@Override
 	public void updateSanPham(SanPham sanPham) {
-		rest.put("sampham", sanPham);
+		rest.put("sanpham", sanPham);
 		
 	}
 

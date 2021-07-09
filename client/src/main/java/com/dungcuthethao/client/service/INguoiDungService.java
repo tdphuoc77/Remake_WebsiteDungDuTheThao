@@ -9,11 +9,11 @@ public interface INguoiDungService {
 	void UpdateNguoiDung(NguoiDung nguoiDung);
 	NguoiDung findById(Long id);
 	List<NguoiDung> findByTenAndHo(String ten,String ho);
-	
+	List<NguoiDung> findAllAndPaging(int page, int limit);
 	
 	NguoiDung findOneByTenDangNhap(String tenDangNhap);
 	Long getTotalItem();
 	void setTrangThaiNguoiDung(Long id, boolean tt);
-	 List<NguoiDung> findAll();
+	List<NguoiDung> findAll();
 		
 }

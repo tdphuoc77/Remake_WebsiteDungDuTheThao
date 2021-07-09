@@ -15,7 +15,7 @@ public class TrangChuController {
 	@Autowired
 	private SanPhamServiceImpl phamServiceImpl;
 	
-	@GetMapping("/")
+	@GetMapping(value = {"/","/trang-chu"})
 	public String index(Model model) {
 		ArrayList<SanPham> dsSanPhamNoiBat = (ArrayList<SanPham>) phamServiceImpl.findDSSanPhamNoiBat();
 		model.addAttribute("dsSanPhamNoiBat", dsSanPhamNoiBat);

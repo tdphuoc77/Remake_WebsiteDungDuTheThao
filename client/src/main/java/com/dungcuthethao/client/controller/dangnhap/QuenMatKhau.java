@@ -29,7 +29,7 @@ public class QuenMatKhau {
 
 	@RequestMapping(value = "/quen-mat-khau/tim-tai-khoan", method = RequestMethod.GET)
 	public ModelAndView timTaiKhoan() {
-		return new ModelAndView("doimatkhau/timtaikhoan");
+		return new ModelAndView("user/timtaikhoan");
 	}
 
 	@SuppressWarnings("unused")
@@ -43,7 +43,7 @@ public class QuenMatKhau {
 		}
 		ranNum = ThreadLocalRandom.current().nextLong(100000, 999999);
 		senMail.SenEmail(nguoiDung.getEmail(), "Mã xác nhận đổi mật khẩu", String.valueOf(ranNum));
-		return new ModelAndView("doimatkhau/xacnhanma");
+		return new ModelAndView("user/xacnhanma_quenmatkhau");
 
 	}
 	
@@ -54,7 +54,7 @@ public class QuenMatKhau {
 			return new ModelAndView("redirect:/quen-mat-khau/tim-tai-khoan/xac-nhan");
 		}
 		
-		return new ModelAndView("doimatkhau/doimatkhau_quenmatkhau");
+		return new ModelAndView("user/doimatkhau_quenmatkhau");
 	}
 	
 	@RequestMapping(value ="/quen-mat-khau/doi-mat-khau/luu-mat-khau", method = RequestMethod.POST)
@@ -62,14 +62,10 @@ public class QuenMatKhau {
 		if(!matkhau.trim().equals(xacnhanmatkhau.trim())) {
 			return new ModelAndView("redirect:/quen-mat-khau/doi-mat-khau");
 		}
-		
 		NguoiDung nguoiDung= nguoiDungService.findOneByTenDangNhap(tdn);
-		System.out.println(nguoiDung.getMatKhau());
 		nguoiDung.setMatKhau(BCrypt.hashpw(matkhau.trim(),BCrypt.gensalt(12)));
-		System.out.println(nguoiDung.getMatKhau());
 		nguoiDungService.UpdateNguoiDung(nguoiDung);
-		
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/dang-nhap");
 	}
 	
 }

@@ -102,7 +102,7 @@
 		function myFunction(id) {
             var r = confirm("bạn có muốn chặn / bỏ chặn người dùng này không ?");
             if (r == true) {
-                window.location.href= "http://localhost:8080/website-dungcuthethao/quan-tri/quan-ly-nguoi-dung/sua-trang-thai/"+id;
+                window.location.href= "http://localhost:8080/quan-tri/quan-ly-nguoi-dung/sua-trang-thai/"+id;
             } else{
 				alert("Đã hủy thay đổi")
 			}

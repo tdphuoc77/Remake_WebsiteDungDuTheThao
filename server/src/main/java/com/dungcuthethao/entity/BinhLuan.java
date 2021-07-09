@@ -1,7 +1,6 @@
 package com.dungcuthethao.entity;
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,11 +19,11 @@ public class BinhLuan {
 	@Column(name = "id")
 	private Long id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "nguoidungID")
 	private NguoiDung nguoidung;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "sanphamID")
 	private SanPham sanpham;
 	

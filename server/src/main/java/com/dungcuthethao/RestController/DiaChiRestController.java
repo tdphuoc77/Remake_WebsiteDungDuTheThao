@@ -28,7 +28,8 @@ public class DiaChiRestController {
 	
 	@PostMapping
 	public DiaChi addDiaChi(@RequestBody DiaChi diaChi) {
-		return diaChiRestpository.save(diaChi);
+		 diaChiRestpository.save(diaChi);
+		return diaChi;
 	}
 	
 	@PutMapping
@@ -37,7 +38,7 @@ public class DiaChiRestController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteDiaChi(@PathVariable Long id) {
+	public void deleteDiaChi(@PathVariable Integer id) {
 		diaChiRestpository.deleteById(id);
 	}
 }

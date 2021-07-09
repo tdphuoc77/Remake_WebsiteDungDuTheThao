@@ -24,8 +24,7 @@ public class HoaDonServiceImpl implements IHoaDonService {
 
 	@Override
 	public HoaDon findById(Long id) {
-		// TODO Auto-generated method stub
-		return rest.getForObject("/hoadon/"+id, HoaDon.class);
+		return rest.getForObject("hoadon/"+id, HoaDon.class);
 	}
 
 	@Override
@@ -39,28 +38,25 @@ public class HoaDonServiceImpl implements IHoaDonService {
 		rest.delete("hoadon/"+id);
 		
 	}
-
-
-
 	@Override
 	public void updateHoaDon(HoaDon hoaDon) {
-		rest.put("hoadon", HoaDon.class);
+		rest.put("hoadon", hoaDon);
 		
 	}
 
 
 
 	@Override
-	public List<HoaDon> findListHoaDonDaGiao() {
+	public List<HoaDon> findListHoaDonDaGiao(int page,int limit) {
 		// TODO Auto-generated method stub
-		return rest.exchange("hoadon/trangthai/dagiao", HttpMethod.GET, null, new ParameterizedTypeReference<List<HoaDon>>() {
+		return rest.exchange("hoadon/trangthai/dagiao?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<HoaDon>>() {
 		}).getBody();
 	}
 
 	@Override
-	public List<HoaDon> findListHoaChuaGiao() {
+	public List<HoaDon> findListHoaChuaGiao(int page,int limit) {
 		// TODO Auto-generated method stub
-		return rest.exchange("hoadon/trangthai/chuagiao", HttpMethod.GET, null, new ParameterizedTypeReference<List<HoaDon>>() {
+		return rest.exchange("hoadon/trangthai/chuagiao?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<HoaDon>>() {
 		}).getBody();
 	}
 
@@ -75,6 +71,12 @@ public class HoaDonServiceImpl implements IHoaDonService {
 	public List<HoaDon> getByNguoiDungChuaNhan(Long idND) {
 		// TODO Auto-generated method stub
 		return rest.exchange("hoadon/nguoidung/chuanhan/"+idND, HttpMethod.GET, null, new ParameterizedTypeReference<List<HoaDon>>() {
+		}).getBody();
+	}
+
+	@Override
+	public List<HoaDon> getAll() {
+		return rest.exchange("hoadon", HttpMethod.GET, null, new ParameterizedTypeReference<List<HoaDon>>() {
 		}).getBody();
 	}
 

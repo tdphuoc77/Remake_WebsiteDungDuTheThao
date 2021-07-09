@@ -64,4 +64,10 @@ public class NguoiDungServiceImpl implements INguoiDungService {
 		}).getBody();
 	}
 
+	@Override
+	public List<NguoiDung> findAllAndPaging(int page, int limit) {
+		return rest.exchange("nguoidung/phantrang?page="+page+"&&limit="+limit, HttpMethod.GET, null, new ParameterizedTypeReference<List<NguoiDung>>() {
+		}).getBody();
+	}
+
 }

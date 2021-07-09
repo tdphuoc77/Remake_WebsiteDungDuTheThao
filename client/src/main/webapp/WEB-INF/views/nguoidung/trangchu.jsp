@@ -118,7 +118,7 @@
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="list-image overlay">
-										<img
+										<img style="width: 400px;height: 250px"
 											src=" <c:url value="/resources/images/user/sanpham/${item.anhDaiDien}"/> "
 											alt="#"> <a
 											href="<c:url value="/gio-hang/them/${item.id}"/>" class="buy"><i
@@ -177,11 +177,11 @@
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="list-image overlay">
-										<img
+										<img style="width: 400px;height: 250px"
 											src=" <c:url value="/resources/images/user/sanpham/${item.anhDaiDien}"/> "
 											alt="#"> <a
 											href="<c:url value="/gio-hang/them/${item.id}"/>" class="buy"><i
-											class="fa fa-shopping-bag"></i></a>
+											class="fa fa-shopping-bag" ></i></a>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12 no-padding">
@@ -231,7 +231,7 @@
 				<div class="row">
 					<div class="col-lg-6 col-12 padding-right">
 						<div class="image">
-							<img src="<c:url value="/resources/images/user/sanpham/${spGiamGiaTrongNgay.anhDaiDien}"/>" alt="#">
+							<img style="height: 450px;width: 500px" src="<c:url value="/resources/images/user/sanpham/${spGiamGiaTrongNgay.anhDaiDien}"/>" alt="#">
 						</div>
 					</div>
 					<div class="col-lg-6 col-12 padding-left">

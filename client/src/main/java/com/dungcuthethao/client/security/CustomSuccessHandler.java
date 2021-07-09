@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
 import com.dungcuthethao.client.util.SecurityUtils;
 
-@Component
-public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+public class CustomSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler  {
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	public RedirectStrategy getRedirectStrategy() {
@@ -43,7 +42,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		if (isAdmin(roles)) {
 			url = "/quan-tri/trang-chu";
 		} else if (isUser(roles)) {
-			url = "/trang-chu";
+			url = "/";
 		}
 		return url;
 	}

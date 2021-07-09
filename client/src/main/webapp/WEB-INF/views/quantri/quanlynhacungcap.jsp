@@ -104,7 +104,7 @@
 		function myFunction(id) {
             var r = confirm("bạn có chắc xóa nhà cung cấp này không ?");
             if (r == true) {
-                window.location.href= "http://localhost:8080/website-dungcuthethao/quan-tri/nha-cung-cap/xoa-nha-cung-cap/"+id;
+                window.location.href= "http://localhost:8080/quan-tri/nha-cung-cap/xoa-nha-cung-cap/"+id;
             } else{
 				alert("Đã hủy thay đổi")
 			}

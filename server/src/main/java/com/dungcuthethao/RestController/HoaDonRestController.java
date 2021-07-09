@@ -24,21 +24,7 @@ public class HoaDonRestController {
 
 	@Autowired
 	private HoaDonRepository  hoaDonRepository;
-	
-//	void saveHoaDon(HoaDon hoaDon);
-//	HoaDon findById(Long id);
-//	void themDSChiTietHoaDon(Long idHD,HashMap<Long, GiohangSanphamDTO> gioHang);
-//	List<HoaDon> findAllByTrangThaiAndPaging(boolean tt, Pageable pageable);
-//	Long getTotalItem();
-//	void deleteHoaDon(HoaDon hoaDon);
-//	void setTrangThaiHoaDon(Long id, boolean tt);
-//	List<HoaDon> findByNguoiDungIDAndTrangThaiXacNhan(Long id);
-//	void setTrangThaiNguoiMuaXacNhan(@Param("id") Long id);
-//	
-//	void updateHoaDon(HoaDon hoaDon);
-//	
-//	void setNgayNhan( LocalDate ngayNhan ,Long id);
-//	List<HoaDon> findListHoaDonDaGiao(Long id);
+
 	
 	@GetMapping("/trangthai/dagiao")
 	public List<HoaDon> getTrangThaiTrue(@RequestParam int page, @RequestParam int limit) {
@@ -59,6 +45,11 @@ public class HoaDonRestController {
 		return hoaDonRepository.findByNguoidungIdAndTrangThaiIsTrueAndNguoiDungXacNhanIsFalse(idND);
 	}
 	
+	@GetMapping
+	public List<HoaDon> getALL() {
+		return hoaDonRepository.findAll();
+		
+	}
 	
 	
 	@GetMapping("/{id}")
@@ -76,7 +67,7 @@ public class HoaDonRestController {
 		hoaDonRepository.save(hoaDon);
 		return hoaDon;
 	}
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public void deleteHoaDon(@PathVariable Long id) {
 		hoaDonRepository.deleteById(id);
 	}

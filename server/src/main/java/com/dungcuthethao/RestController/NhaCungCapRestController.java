@@ -62,9 +62,14 @@ public class NhaCungCapRestController {
 		nhaCungCapRepository.save(nhaCungCap);
 		return nhaCungCap;
 	}
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public void deletNCC(@PathVariable Long id) {
 		nhaCungCapRepository.deleteById(id);
+	}
+	
+	@GetMapping("/ten")
+	public NhaCungCap getByTen(@RequestParam String ten) {
+		return nhaCungCapRepository.findOneByTenNhaCungCap(ten);
 	}
 	
 }

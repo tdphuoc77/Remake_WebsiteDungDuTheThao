@@ -35,6 +35,7 @@ public class GioHangController {
 	
 	@GetMapping("/gio-hang/them/{id}")
 	public String themVaoGioHang(HttpServletRequest req,HttpSession session, @PathVariable Long id, Model model) {
+		@SuppressWarnings("unchecked")
 		HashMap<Long, GiohangSanphamDTO> gioHang =(HashMap<Long, GiohangSanphamDTO>) req.getSession().getAttribute("gioHang");
 		if(gioHang == null) {
 			gioHang = new HashMap<Long, GiohangSanphamDTO>(); 
@@ -68,6 +69,7 @@ public class GioHangController {
 	}
 	@GetMapping("/gio-hang/xoa/{id}")
 	public String xoaSanPhamGioHang(HttpServletRequest req,HttpSession session, @PathVariable Long id) {
+		@SuppressWarnings("unchecked")
 		HashMap<Long, GiohangSanphamDTO> gioHang =(HashMap<Long, GiohangSanphamDTO>) req.getSession().getAttribute("gioHang");
 		if(gioHang == null) {
 			gioHang = new HashMap<Long, GiohangSanphamDTO>(); 
@@ -82,6 +84,7 @@ public class GioHangController {
 	
 	@GetMapping("/gio-hang/sua/{id}/{soLuongMoi}")
 	public String suaSanPhamGioHang(HttpServletRequest req,HttpSession session, @PathVariable Long id,  @PathVariable int soLuongMoi) {
+		@SuppressWarnings("unchecked")
 		HashMap<Long, GiohangSanphamDTO> gioHang =(HashMap<Long, GiohangSanphamDTO>) req.getSession().getAttribute("gioHang");
 		if(gioHang == null) {
 			gioHang = new HashMap<Long, GiohangSanphamDTO>(); 

@@ -14,52 +14,47 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "NguoiDung")
 public class NguoiDung {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "ngayTao")
 	private LocalDate ngayTao;
 	
 	@ManyToOne
 	@JoinColumn(name = "loainguoidungID")
 	private LoaiNguoiDung loainguoidung;
 
-	@Column(columnDefinition = "nvarchar(50)",name = "ho")
+	@Column(columnDefinition = "nvarchar(50)")
 	private String ho;
 
-	@Column(columnDefinition = "nvarchar(50)",name = "ten")
+	@Column(columnDefinition = "nvarchar(50)")
 	private String ten;
 
-	@Column(name = "gioiTinh")
 	private boolean gioiTinh;
 
-	@Column(name = "email")
+
 	private String email;
 
-	@Column(name = "soDienThoai")
 	private String soDienThoai;
 
-	@Column(name = "tenDangNhap")
 	private String tenDangNhap;
 
-	@Column(name = "matKhau")
 	private String matKhau;
 	
-	@Column(name = "trangThai")
 	private boolean trangThai;
 
 	@OneToMany(mappedBy = "nguoidung")
 	Set<DiaChi> dsDiaChi = new HashSet<DiaChi>();
 
+
 	public NguoiDung(Long id, LocalDate ngayTao, LoaiNguoiDung loainguoidung, String ho, String ten, boolean gioiTinh,
-			 String email, String soDienThoai, String tenDangNhap, String matKhau, boolean trangThai,
-			Set<DiaChi> dsDiaChi) {
+			 String email, String soDienThoai, String tenDangNhap, String matKhau, boolean trangThai) {
 		super();
 		this.id = id;
 		this.ngayTao = ngayTao;
@@ -73,12 +68,12 @@ public class NguoiDung {
 		this.tenDangNhap = tenDangNhap;
 		this.matKhau = matKhau;
 		this.trangThai = trangThai;
-		this.dsDiaChi = dsDiaChi;
 	}
 
+	
+
 	public NguoiDung(LocalDate ngayTao, LoaiNguoiDung loainguoidung, String ho, String ten, boolean gioiTinh,
-			 String email, String soDienThoai, String tenDangNhap, String matKhau, boolean trangThai,
-			Set<DiaChi> dsDiaChi) {
+			 String email, String soDienThoai, String tenDangNhap, String matKhau, boolean trangThai) {
 		super();
 		this.ngayTao = ngayTao;
 		this.loainguoidung = loainguoidung;
@@ -90,7 +85,6 @@ public class NguoiDung {
 		this.tenDangNhap = tenDangNhap;
 		this.matKhau = matKhau;
 		this.trangThai = trangThai;
-		this.dsDiaChi = dsDiaChi;
 	}
 
 	public NguoiDung() {
@@ -200,6 +194,31 @@ public class NguoiDung {
 				+ ", ten=" + ten + ", gioiTinh=" + gioiTinh + ", email=" + email
 				+ ", soDienThoai=" + soDienThoai + ", tenDangNhap=" + tenDangNhap + ", matKhau=" + matKhau
 				+ ", trangThai=" + trangThai + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NguoiDung other = (NguoiDung) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 		

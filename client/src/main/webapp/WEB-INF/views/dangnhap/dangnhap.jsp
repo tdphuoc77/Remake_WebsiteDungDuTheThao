@@ -19,7 +19,7 @@
 							</div>
 							<div class="card-body">
 							
-								<form action="<c:url value="/j_spring_security_login" />" method="GET">
+								<form action="/dang-nhap" method="post">
 									<div class="form-group">
 										<label class="small mb-1" for="inputEmailAddress">Tài
 											khoản</label> <input class="form-control py-4" id="inputEmailAddress"

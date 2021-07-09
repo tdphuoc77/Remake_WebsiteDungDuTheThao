@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "HoaDon")
 public class HoaDon{
@@ -23,7 +25,7 @@ public class HoaDon{
 	@Column(name = "id")
 	private Long id;
 	
-	@ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},optional = false)
+	@ManyToOne
 	@JoinColumn(name = "nguoidungID", nullable = false)
 	private NguoiDung nguoidung;
 	
@@ -59,6 +61,7 @@ public class HoaDon{
 
 
 	@OneToMany(mappedBy = "hoadon")
+	@JsonIgnore
 	private Set<ChiTietHoaDon> dsChiTietHoaDon = new HashSet<ChiTietHoaDon>();
 
 

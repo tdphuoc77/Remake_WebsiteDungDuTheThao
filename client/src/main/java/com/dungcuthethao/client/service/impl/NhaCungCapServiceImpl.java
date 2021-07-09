@@ -32,8 +32,7 @@ public class NhaCungCapServiceImpl implements INhaCungCapService{
 
 	@Override
 	public NhaCungCap findByTenNhaCungCap(String ten) {
-		// TODO Auto-generated method stub
-		return null;
+		return rest.getForObject("nhacungcap/ten?ten="+ten, NhaCungCap.class);
 	}
 
 	@Override

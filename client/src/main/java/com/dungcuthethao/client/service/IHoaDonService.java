@@ -15,11 +15,11 @@ public interface IHoaDonService {
 	void updateHoaDon(HoaDon hoaDon);
 	
 //	void setNgayNhan( LocalDate ngayNhan ,Long id);
-	List<HoaDon> findListHoaDonDaGiao();
-	List<HoaDon> findListHoaChuaGiao();
+	List<HoaDon> findListHoaDonDaGiao(int page,int limit);
+	List<HoaDon> findListHoaChuaGiao(int page,int limit);
 	List<HoaDon> getByNguoiDungNhan(Long idND);
 	List<HoaDon> getByNguoiDungChuaNhan(Long idND);
-	
+	List<HoaDon> getAll();
 	
 	
 }

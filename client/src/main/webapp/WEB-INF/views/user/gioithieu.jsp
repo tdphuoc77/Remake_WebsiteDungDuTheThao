@@ -94,7 +94,7 @@
 		$("#btn-search-sp").on("click", function () {
 			var keywork = $("#keywork").val();
 			if(keywork != ""){
-				window.location = "http://localhost:8080/website-dungcuthethao/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&limit=12";
+				window.location = "http://localhost:8080/danh-sach-san-pham/tim-kiem/"+keywork+"?page=1&limit=12";
 			}
 			
 		})

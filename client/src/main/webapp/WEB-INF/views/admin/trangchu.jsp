@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><decorator:title /></title>
+<title>Trang chủ - Quản trị</title>
 <link href="<c:url value="/resources/admin/css/styles.css"/> "
 	rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
@@ -17,8 +17,9 @@
 </head>
 <body class="sb-nav-fixed">
 	<%@include file="/WEB-INF/views/layouts/quantri/header.jsp"%>
-	<decorator:body />
-
+	
+	<%@include file="/WEB-INF/views/quantri/trangchu.jsp"%>
+	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		crossorigin="anonymous"></script>
 	<script

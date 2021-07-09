@@ -9,25 +9,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "DiaChi")
 public class DiaChi{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name = "nguoidungID")
+	@JsonIgnore
 	private NguoiDung nguoidung;
-	@Column(columnDefinition = "nvarchar(25)",name = "soNha")
+	
+	
+	@Column(columnDefinition = "nvarchar(25)")
 	private String soNha;
-	@Column(columnDefinition = "nvarchar(25)",name = "quan")
+	@Column(columnDefinition = "nvarchar(25)")
 	private String quan;
 
 	
-	@Column(columnDefinition = "nvarchar(25)",name = "tinhTP")
+	@Column(columnDefinition = "nvarchar(25)")
 	private String tinhTP;
+
 
 	
 	public DiaChi() {

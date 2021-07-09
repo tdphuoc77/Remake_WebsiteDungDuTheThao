@@ -14,6 +14,7 @@ public class ChiTietHoaDon {
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "sanphamID")
+	
 	private SanPham sanpham;
 	
 	@Id

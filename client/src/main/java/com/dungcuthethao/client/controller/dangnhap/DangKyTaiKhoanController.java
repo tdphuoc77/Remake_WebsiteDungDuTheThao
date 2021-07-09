@@ -19,6 +19,7 @@ import com.dungcuthethao.client.dto.NguoiDungDangKyDTO;
 import com.dungcuthethao.client.entity.NguoiDung;
 import com.dungcuthethao.client.service.impl.LoaiNguoiDungServiceImpl;
 import com.dungcuthethao.client.service.impl.NguoiDungServiceImpl;
+import com.dungcuthethao.client.validate.DangKiTaiKhoanValidation;
 
 @Controller
 @RequestMapping("/dangky")
@@ -27,8 +28,8 @@ public class DangKyTaiKhoanController {
 	private Long ran=0L;
 	@Autowired
 	private SenMail senMail;
-//	@Autowired
-//	private DangKiTaiKhoanValidation dangKyTaiKhoanValidation;
+	@Autowired
+	private DangKiTaiKhoanValidation dangKyTaiKhoanValidation;
 	
 	@Autowired
 	NguoiDungServiceImpl nguoiDungService;
@@ -43,10 +44,10 @@ public class DangKyTaiKhoanController {
 	}
 	@PostMapping
 	public String xacNhan(Model model, @ModelAttribute("nguoiDungDangKy") NguoiDungDangKyDTO nguoiDung,BindingResult bindingResult) {
-//		dangKyTaiKhoanValidation.validate(nguoiDung, bindingResult);
+		dangKyTaiKhoanValidation.validate(nguoiDung, bindingResult);
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("mesErr","Thông tin đăng ký không hợp lệ");
-			return "dangkytaikhoan/dangky";
+			return "user/dangky";
 		}
 		
 		nd.setHo(nguoiDung.getHo());
@@ -72,16 +73,15 @@ public class DangKyTaiKhoanController {
 			ma = Long.parseLong(maXN);
 		} catch (Exception e) {
 			model.addAttribute("mesMaXacNhanSai","Mã xác nhận sai. Vui lòng nhập lại");
-			return "dangkytaikhoan/xacnhanma";
+			return "user/xacnhanma";
 		}
 		if((long)ma==(long)ran) {
-			
 			nguoiDungService.saveNguoiDung(nd);
 			return "redirect:/dang-nhap";
 		}
 		
 		model.addAttribute("mesMaXacNhanSai","Mã xác nhận sai. Vui lòng nhập lại");
-		return "dangkytaikhoan/xacnhanma";
+		return "user/xacnhanma";
 		
 	}
 	

@@ -56,6 +56,8 @@ public class DiaChi{
 		this.tinhTP = tinhTP;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return ""+soNha + ", " + quan + ", " + tinhTP ;

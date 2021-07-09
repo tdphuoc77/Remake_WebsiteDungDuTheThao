@@ -118,13 +118,11 @@ public class SanPhamController {
 		model.addAttribute("listDanhMuc", listDanhMuc);
 		return "user/danhsachsanpham_theodanhmuc";
 	}
-//	
 	@GetMapping("/danh-sach-san-pham/sap-xep/{value}")
 	public String sapXep(@PathVariable String value, Model model,  @RequestParam("page") int page,@RequestParam("limit") int limit) {
 		AbstractDTO abstractDTO= new AbstractDTO();
 		abstractDTO.setPage(page);
 		abstractDTO.setLimit(limit);
-		
 		List<SanPham> dsSanPham=null;
 		if(value.equals("asc")) {
 			 dsSanPham = sanPhamService.getAllAndPagingAndSapXepTang(page, limit);
@@ -132,8 +130,7 @@ public class SanPhamController {
 		else {
 			dsSanPham = sanPhamService.getAllAndPagingAndSapXepGiam(page, limit);
 		}
-		
-		System.out.println("Checkkk"+ dsSanPham.size());
+		abstractDTO.setTotalItem((long) sanPhamService.getAll().size());
 		abstractDTO.setLimit(limit);
 		
 		abstractDTO.setTotalPage((int) Math.ceil(abstractDTO.getTotalItem()/abstractDTO.getLimit())+1);
@@ -211,9 +208,6 @@ public class SanPhamController {
 
 		return "user/chitietsanpham";
 	}
-
-//	chi-tiet-san-pham/luu-binh-luan
-
 	@RequestMapping("/chi-tiet-san-pham/luu-binh-luan/{id}")
 	public String luuBinhLuan(@PathVariable Long id,HttpSession session,@RequestParam("binhLuan") String binhLuan,@RequestParam MultipartFile anhSanPham) throws IOException {
 		NguoiDungDTO nguoidungDTO = null;
@@ -225,8 +219,9 @@ public class SanPhamController {
 		NguoiDung nguoidung = nguoiDungService.findOneByTenDangNhap(nguoidungDTO.getUsername());
 		if (binhLuan != null) {
 			luuAnh.luuAnh(anhSanPham, session);
-//			binhLuanService.themBinhLuan(anhSanPham.getOriginalFilename(), binhLuan, LocalDate.now(), nguoidung.getId(),id);
-			binhLuanService.save(new BinhLuan(nguoidung, sanPhamService.findById(id), binhLuan, anhSanPham.getOriginalFilename(), LocalDate.now()));;
+			BinhLuan bl= new BinhLuan(nguoidung, sanPhamService.findById(id), binhLuan, anhSanPham.getOriginalFilename(), LocalDate.now());
+			System.out.println(new BinhLuan(nguoidung, sanPhamService.findById(id), binhLuan, anhSanPham.getOriginalFilename(), LocalDate.now()));
+			binhLuanService.save(bl);
 		}
 
 		return "redirect:/chi-tiet-san-pham/"+id;

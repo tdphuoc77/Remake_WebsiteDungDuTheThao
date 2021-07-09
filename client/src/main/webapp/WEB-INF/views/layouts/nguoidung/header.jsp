@@ -23,18 +23,19 @@
 					<div class="right-content">
 						<ul class="list-main">
 							<c:if test=""></c:if>
+							
 							<security:authorize access="isAnonymous()">
 								<li><i class="ti-power-off"></i><a
 									href=" <c:url value="/dang-nhap"/> ">Đăng nhập</a></li>
 								<li><i class="ti-arrow-right"></i> <a
 									href="<c:url value="/dangky"/> ">Đăng ký</a></li>
 							</security:authorize>
-<%-- 
+
 							<security:authorize access="isAuthenticated()">
 								<li><i class="ti-power-off"></i>Welcome <%=SecurityUtils.getPrincipal().getFullName()%></li>
 								<li><i class="ti-arrow-right"></i> <a
 									href="<c:url value="/dang-xuat"/> ">Thoát</a></li>
-							</security:authorize> --%>
+							</security:authorize>
 
 						</ul>
 					</div>

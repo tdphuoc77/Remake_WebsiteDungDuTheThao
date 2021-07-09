@@ -18,7 +18,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	    public void addInterceptors(InterceptorRegistry registry) {
 	        // LogInterceptor áp dụng cho mọi URL.
 	        registry.addInterceptor(menu)
-	        .addPathPatterns("/*");
+	        .addPathPatterns("/*")
+	        .excludePathPatterns("/quan-tri/**");
 	 
 	        // Đường dẫn login cũ, không còn sử dụng nữa.
 	        // Sử dụng OldURLInterceptor để điều hướng tới một URL mới.

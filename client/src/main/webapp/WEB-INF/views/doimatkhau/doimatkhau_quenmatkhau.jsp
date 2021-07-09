@@ -23,7 +23,7 @@
 						
 						<div class="p-t-15">
 							<input type="submit" class="btn btn--radius-2 btn--blue"
-								value="Tìm tài khoản" />
+								value="Đổi mật khẩu" />
 						</div>
 					</form>
 				</div>

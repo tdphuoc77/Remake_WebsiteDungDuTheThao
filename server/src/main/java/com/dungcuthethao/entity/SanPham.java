@@ -1,7 +1,9 @@
 package com.dungcuthethao.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -73,6 +75,17 @@ public class SanPham {
 	@OneToMany(mappedBy = "sanpham")
 	@JsonIgnore
 	private Set<GiaTriThuocTinhSanPham> dsThuocTinhSanPham = new HashSet<GiaTriThuocTinhSanPham>();
+	@OneToMany(mappedBy = "sanpham")
+	@JsonIgnore
+	private List<BinhLuan> binhLuans= new ArrayList<BinhLuan>();
+
+	public List<BinhLuan> getBinhLuans() {
+		return binhLuans;
+	}
+
+	public void setBinhLuans(List<BinhLuan> binhLuans) {
+		this.binhLuans = binhLuans;
+	}
 
 	public SanPham(Long id, String ten, DanhMuc danhmuc, NhaCungCap nhacungcap, String moTa, String thuongHieu,
 			String noiDung, double gia, double phanTramGiamGia, int soLuong, String anhDaiDien, int soLuotXem,

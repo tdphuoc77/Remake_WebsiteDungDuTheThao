@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dungcuthethao.entity.DiaChi;
 
-public interface DiaChiRepository extends JpaRepository<DiaChi, Long> {
+public interface DiaChiRepository extends JpaRepository<DiaChi, Integer> {
 	List<DiaChi> findByNguoidungId(Long idND);
 }

@@ -15,7 +15,7 @@ import com.dungcuthethao.client.dto.NguoiDungDTO;
 import com.dungcuthethao.client.entity.LoaiNguoiDung;
 import com.dungcuthethao.client.entity.NguoiDung;
 
-@Service
+@Service("customUserService")
 public class CustomUserDetailService implements UserDetailsService {
 
 	@Autowired
